@@ -14,5 +14,9 @@ describe("StringCalculator Kata", () => {
   it("should return the sum of multiple numbers", () => {
     expect(add("1,2,3,4,5,8,0")).toBe(23);
   });
+  it("should handle new lines between numbers", () => {
+    expect(add("1\n2,3")).toBe(6);
+  });
+
 
 });
