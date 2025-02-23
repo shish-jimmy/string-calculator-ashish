@@ -20,5 +20,10 @@ describe("StringCalculator Kata", () => {
   it("should support custom single character delimiter", () => {
     expect(add("//;\n1;2")).toBe(3);
   });
-
+  it("should throw an error for negative numbers", () => {
+    expect(() => add("1,-2,3,-4")).toThrow("Negatives not allowed: -2,-4");
+  });
+  it("should ignore numbers greater than 1000", () => {
+    expect(add("2,1001")).toBe(2);
+  });
 });

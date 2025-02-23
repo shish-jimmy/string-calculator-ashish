@@ -10,5 +10,12 @@ export function add(numbers: string): number {
 
     numbers = parts[1];
   }
-  return numbers.split(delimiter).reduce((sum, num) => sum + parseInt(num), 0);
+
+  let numArray = numbers.split(delimiter).map((num) => parseInt(num));
+  const negativeNumbers = numArray.filter((num) => num < 0);
+
+  if (negativeNumbers.length > 0) {
+    throw new Error(`Negatives not allowed: ${negativeNumbers.join(",")}`);
+  }
+  return numArray.filter(n=>n <= 1000).reduce((sum, num) => sum + num, 0);
 }
