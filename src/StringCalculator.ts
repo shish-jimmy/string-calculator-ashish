@@ -9,7 +9,7 @@ export function add(numbers: string): number {
 
     if(delimiterMatch){
         const delimiterArray = delimiterMatch.map((match) => match.slice(1, -1).replace(/[-\/\\^$*+?.()|[\]{}]/g, "\\$&"));
-        delimiter = new RegExp(delimiterArray.join("|"));
+        delimiter = new RegExp([...delimiterArray, ",","/", "\n"].join("|"));
     }else{
         delimiter = new RegExp(parts[0].slice(2).replace(/[-\/\\^$*+?.()|[\]{}]/g, "\\$&"));
 
