@@ -35,16 +35,22 @@ describe("StringCalculator Kata", () => {
   });
 
   it("should support multiple delimiters with different lengths", () => {
-    expect(add("//[**][%%%%][%%%]\n1**2%%%3%%%%5")).toBe(11); 
+    expect(add("//[**][%%%%][%%%]\n1**2%%%3%%%%5")).toBe(11);
   });
-  
+
   it("should throw an error for negative numbers with custom delimiters", () => {
-    expect(() => add("//[***]\n1***-1***3***-4")).toThrow("Negatives not allowed: -1,-4");
+    expect(() => add("//[***]\n1***-1***3***-4")).toThrow(
+      "Negatives not allowed: -1,-4"
+    );
   });
   it("should throw an error for negative numbers with multiple custom delimiters", () => {
-    expect(() => add("//[*][%]\n1*-2%3*-4")).toThrow("Negatives not allowed: -2,-4");
+    expect(() => add("//[*][%]\n1*-2%3*-4")).toThrow(
+      "Negatives not allowed: -2,-4"
+    );
   });
   it("should throw an error for negative numbers with multiple custom delimiters of different lengths", () => {
-    expect(() => add("//[**][%%%]\n1**-400%%%3**-4")).toThrow("Negatives not allowed: -400,-4");
+    expect(() => add("//[**][%%%]\n1**-400%%%3**-4")).toThrow(
+      "Negatives not allowed: -400,-4"
+    );
   });
 });
