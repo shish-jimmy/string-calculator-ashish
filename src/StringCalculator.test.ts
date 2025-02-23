@@ -17,6 +17,8 @@ describe("StringCalculator Kata", () => {
   it("should handle new lines between numbers", () => {
     expect(add("1\n2,3")).toBe(6);
   });
-
+  it("should support custom single character delimiter", () => {
+    expect(add("//;\n1;2")).toBe(3);
+  });
 
 });
