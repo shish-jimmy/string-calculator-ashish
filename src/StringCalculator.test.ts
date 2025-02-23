@@ -35,8 +35,9 @@ describe("StringCalculator Kata", () => {
   });
 
   it("should support multiple delimiters with different lengths", () => {
-    expect(add("//[**][%%%]\n1**2%%%3////5")).toBe(11);
+    expect(add("//[**][%%%%][%%%]\n1**2%%%3%%%%5")).toBe(11); 
   });
+  
   it("should throw an error for negative numbers with custom delimiters", () => {
     expect(() => add("//[***]\n1***-1***3***-4")).toThrow("Negatives not allowed: -1,-4");
   });
