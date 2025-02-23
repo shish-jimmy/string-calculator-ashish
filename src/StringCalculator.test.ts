@@ -26,4 +26,15 @@ describe("StringCalculator Kata", () => {
   it("should ignore numbers greater than 1000", () => {
     expect(add("2,1001")).toBe(2);
   });
+  it("should support multi-character delimiters", () => {
+    expect(add("//[***]\n1***2***3")).toBe(6);
+  });
+
+  it("should support multiple delimiters", () => {
+    expect(add("//[*][%]\n1*2%3")).toBe(6);
+  });
+
+  it("should support multiple delimiters with different lengths", () => {
+    expect(add("//[**][%%%]\n1**2%%%3")).toBe(6);
+  });
 });

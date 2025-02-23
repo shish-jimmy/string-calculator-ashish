@@ -5,9 +5,16 @@ export function add(numbers: string): number {
 
   if (numbers.startsWith("//")) {
     const parts = numbers.split("\n");
+    const delimiterMatch = parts[0].match(/\[(.*?)\]/g);
 
-    delimiter = new RegExp(parts[0].slice(2));
+    if(delimiterMatch){
+        const delimiterArray = delimiterMatch.map((match) => match.slice(1, -1).replace(/[-\/\\^$*+?.()|[\]{}]/g, "\\$&"));
+        delimiter = new RegExp(delimiterArray.join("|"));
+    }else{
+        delimiter = new RegExp(parts[0].slice(2).replace(/[-\/\\^$*+?.()|[\]{}]/g, "\\$&"));
 
+    }
+ 
     numbers = parts[1];
   }
 
